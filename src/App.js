@@ -8,12 +8,7 @@ function App() {
   const [expenses, setExpenses] = useState(data);
   const updateExpenseData = expense => {
     console.log("newExpenseData : ",expense);
-    setExpenses((previousExpense) => {
-      return {
-        ...previousExpense,
-        expense
-      }
-    })
+    setExpenses([expense,...expenses])
   }
   return (
     <div>

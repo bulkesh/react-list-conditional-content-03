@@ -1,13 +1,13 @@
 [
     {
         "id": "e1",
-        "date":"september 2022, 01",
+        "date":"september 2019, 01",
         "title":"Medical",
         "amount": 2300
     },
     {
         "id": "e2",
-        "date":"september 2022, 03",
+        "date":"september 2020, 03",
         "title":"Education",
         "amount": 35000
     },
