@@ -1,0 +1,24 @@
+.date-widgit {
+  display: flex;
+  flex-direction: column;
+  width: 5.5rem;
+  height: 5.5rem;
+  border: 1px solid #ececec;
+  background-color: #2a2a2a;
+  color: white;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-widgit__year {
+  font-size: 14px;
+}
+.date-widgit__month {
+  font-size: 14px;
+  font-weight: bold;
+}
+.date-widgit__day {
+  font-size: 22px;
+  font-weight: bold;
+}
