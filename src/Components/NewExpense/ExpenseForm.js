@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './ExpenseForm.css';
 
 const ExpenseForm = (props) => {
+    const [isFormEmpty, setIsFormEmpty] = useState(false);
     /* const [title,setTitle] = useState('');
     const [amount,setAmount] = useState('');
     const [date,setDate] = useState('');
@@ -13,6 +14,7 @@ const ExpenseForm = (props) => {
     });
     const onTitleChange = (e) => {
         //setTitle(e.target.value);
+        setIsFormEmpty(false);
         setFormData((prevState) => {
             return {
                 ...prevState,
@@ -23,6 +25,7 @@ const ExpenseForm = (props) => {
     }
     const onAmountChange = (e) => {
         //setAmount(e.target.value);
+        setIsFormEmpty(false);
         setFormData((prevState) => {
             return {
                 ...prevState,
@@ -32,6 +35,7 @@ const ExpenseForm = (props) => {
     }
     const onDateChange = (e) => {
         // setDate(e.target.value);
+        setIsFormEmpty(false);
         setFormData((prevState) => {
             return {
                 ...prevState,
@@ -46,6 +50,11 @@ const ExpenseForm = (props) => {
         console.log("amount : ",amount);
         console.log("date : ",date); 
         console.log("formData : ", formData);*/
+        if (!formData.date || !formData.amount || !formData.title) {
+            setIsFormEmpty(true);
+            return;
+        }
+
         props.onSaveExpense(formData);
         setFormData((prevState) => {
             return {
@@ -72,7 +81,13 @@ const ExpenseForm = (props) => {
                     <input type="date" value={formData.date} min='2019-01-02' max='2023-01-02' onChange={onDateChange} />
                 </div>
             </div>
+
+            {
+                isFormEmpty ? <h3>* Please fill the form befor add expense.</h3> : ''
+            }
+
             <div className="new-expense__actions">
+                <button onClick={props.cancelSubmit}>Cancel</button>
                 <button type="submit">Submit Expense</button>
             </div>
         </form>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ExpenseItem from "./ExpenseItem";
+import ExpenseList from "./ExpenseList";
 import Card from "../Shared/Card";
 import ExpensesFilter from './ExpensesFilter';
 import './Expense.css';
@@ -18,23 +18,13 @@ const Expense = (props) => {
             new Date(item.date).getFullYear().toString() === filterYear
         )
     });
-    // Assign default value to render content if No data found on filter applied
-    let exoensesContent = <h1>No Expense Data Found</h1>;
-    // Reassign render data if filtered data found on filter applied.
-    if (expData.length > 0) {
-        exoensesContent = expData.map((expense, key) => (<ExpenseItem
-            key={expense.id}
-            date={expense.date}
-            title={expense.title}
-            amount={expense.amount} />)
-        )
-    }
+   
     return (
         <Card className="expenses">
             <ExpensesFilter selectedFilter={filterYear} onFilterSelect={filterSelectionhandler} />
             <div>
                 {/* Render filtered data or No data message */}
-                {exoensesContent}
+               <ExpenseList expenses={expData} />
             </div>
         </Card>
 
