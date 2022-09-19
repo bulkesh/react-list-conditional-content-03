@@ -45,7 +45,6 @@ const ExpenseForm = (props) => {
     }
     const onFormSubmit = (e) => {
         e.preventDefault();
-        console.log(e);
         /* console.log("title : ",title);
         console.log("amount : ",amount);
         console.log("date : ",date); 
